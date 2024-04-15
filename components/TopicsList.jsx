@@ -1,10 +1,11 @@
+
 import Link from "next/link";
 import RemoveBtn from "./RemoveBtn";
 import { HiPencilAlt } from "react-icons/hi";
 
 const getTopics = async () => {
   try {
-    const res = await fetch("http://localhost:3000/api/topics", {
+    const res = await fetch("https://blog-ag.vercel.app/api/topics", {
       cache: "no-store",
     });
 
@@ -15,6 +16,7 @@ const getTopics = async () => {
     return res.json();
   } catch (error) {
     console.log("Error loading topics: ", error);
+    return { topics: [] };
   }
 };
 
